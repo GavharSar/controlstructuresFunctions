@@ -2,10 +2,10 @@ val minSecond = 0
 val minute = 60
 val hour = 3600
 val day = 86_400
-val seconds = 65
+val seconds = 32_000
 fun main() {
     var text = agoToText()
-    println(text)
+    println("был(а) $text")
 
 }
 fun agoToText(): String = when (true) {
@@ -25,15 +25,15 @@ fun amountHours(): Int {
     return seconds / hour
 }
 
-fun minuteText(amount: Int): String = when (amount) {
-    1 -> "минуту"
-    2, 3, 4 -> "минуты"
+fun minuteText(amount: Int): String = when (true) {
+    amount % 10 == 1 && amount % 100 != 11-> "минуту"
+    amount % 10 == 2 ||  amount % 10 == 3 || amount % 10 == 4 -> "минуты"
     else -> "минут"
 }
 
-fun hoursText(amount: Int): String = when (amount) {
-    1 -> "час"
-    2, 3, 4 -> "часа"
+fun hoursText(amount: Int): String = when (true) {
+    amount % 10 == 1 && amount % 100 != 11 -> "час"
+    amount % 10 == 2 ||  amount % 10 == 3 || amount % 10 == 4 -> "часа"
     else -> "часов"
 }
 
